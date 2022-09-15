@@ -25,8 +25,9 @@
     "gridUnits": "ft",
     "primaryTokenAttribute": "hitPoints",
     "secondaryTokenAttribute": "staminaPoints",
-    "manifest": "https://github.com/Drazili/Legends/releases...",
-    "download": "https://github.com/Drazili/Legends/releases...",
+    "manifest": "https://raw.githubusercontent.com/Drazili/Legends/master/system.json",
+    "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.0.0.zip",
+    "url": "https://github.com/Drazili/Legends",
     "compatibility": {
         "minimum": "10",
         "verified": "10",
