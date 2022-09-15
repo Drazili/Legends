@@ -1,0 +1,28 @@
+{
+    "name": "legends",
+    "title": "Legends",
+    "description": "The superhero role playing game.",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Drazili",
+            "discord": "YOUR DISCORD USERNAME HERE"
+        }
+    ],
+    "scripts": [],
+    "esmodules": ["legends.js"],
+    "styles": ["./styles/charactersheet.css", "./styles/statsheet.css"],
+    "packs": [
+        {
+            "name": "powers",
+            "label": "Super powers",
+            "path": ".packs/powers.db",
+            "type": "Item"
+        }
+    ],
+    "socket": false,
+    "gridDistance": 10,
+    "gridUnits": "ft",
+    "primaryTokenAttribute": null,
+    "secondaryTokenAttribute": null
+}

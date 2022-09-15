@@ -1,0 +1,243 @@
+{
+    "Actor": {
+        "types": ["character"],
+        "templates": {
+            "generalInfo": {
+                "codeName": "",
+                "legalName": "",
+                "powerSetting": {
+                    "value": "",
+                    "startingPoints": ""
+                },
+                "pronouns": "",
+                "level": 0,
+                "xpValue": 5,
+                "trainingPoints": 0,
+                "heroPoints": 0,
+                "age": "",
+                "height": "",
+                "weight": "",
+                "empowered": true
+            },
+            "points": {
+                "hitPoints": {
+                    "value": 10,
+                    "max": 10,
+                    "mod": 0,
+                    "description": "Campaign Power Setting + Stamina and Strength HP Bonuses"
+                },
+                "staminaPoints": {
+                    "value": 10,
+                    "max": 10,
+                    "mod": 0,
+                    "description": "Campaign Power Setting + Full Stamina Skill Score and highest Skill Score from either Agility, Intelligence, Speed, or Strength"
+                },
+                "armorPoints": {
+                    "value": 0,
+                    "max": 10,
+                    "mod": 0,
+                    "description": "Comes from any Powers/Abilities that grant Armour Points"
+                }
+            }
+        },
+        "character": {
+            "templates": [
+                "generalInfo",
+                "points"
+            ],
+            "skills": {
+                "agility": {
+                    "name": "Agility",
+                    "unpowered": 0,
+                    "powered": 0,
+                    "max": 15
+                },
+                "charisma": {
+                    "name": "Charisma",
+                    "unpowered": 0,
+                    "powered": 0,
+                    "max": 15
+                },
+                "intelligence": {
+                    "name": "Intelligence",
+                    "unpowered": 0,
+                    "powered": 0,
+                    "max": 15
+                },
+                "senses": {
+                    "name": "Senses",
+                    "unpowered": 0,
+                    "powered": 0,
+                    "max": 15
+                },
+                "speed": {
+                    "name": "Speed",
+                    "unpowered": 0,
+                    "powered": 0,
+                    "max": 15
+                },
+                "stamina": {
+                    "name": "Stamina",
+                    "unpowered": 0,
+                    "powered": 0,
+                    "max": 15
+                },
+                "strength": {
+                    "name": "Strength",
+                    "unpowered": 0,
+                    "powered": 0,
+                    "max": 15
+                }
+            },
+            "attributes": {
+                "initiative": {
+                    "value": 0,
+                    "mod": 0,
+                    "description": "Starts at 10 + Initiative Bonus from Agility OR Speed"
+                },
+                "accuracy": {
+                    "value": 0,
+                    "mod": 0,
+                    "description": "Comes from Intelligence OR Senses"
+                },
+                "inspiration": {
+                    "value": 0,
+                    "mod": 0,
+                    "description": "Comes from Charisma, gives a bonus to allies’ Accuracy and Skill Contest Rolls"
+                },
+                "recoveries": {
+                    "value": 0,
+                    "mod": 0,
+                    "description": "How many times you can heal 1d10 + your level per day"
+                },
+                "defense": {
+                    "value": 0,
+                    "mod": 0,
+                    "description": "Starts at 10 + Defense Bonus from Agility OR Senses"
+                },
+                "movement": {
+                    "value": 0,
+                    "mod": 0,
+                    "description": "Comes from Speed and is how fast you can sprint - use the same number for how many metres you can move in one turn"
+                },
+                "handToHand": {
+                    "value": "",
+                    "mod": "",
+                    "description": "Comes from Strength, measures dice roll for melee damage."
+                },
+                "maxLift": {
+                    "value": 0,
+                    "mod": 0,
+                    "description": "Comes from Strength, the max amount in KG your character can comfortably lift"
+                }
+            },
+            "durability": {
+                "blunt": {
+                    "name": "Blunt",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "disruption": {
+                    "name": "Disruption",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "earth": {
+                    "name": "Earth",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "fall": {
+                    "name": "Fall",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "fire": {
+                    "name": "Fire",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "forceFields": {
+                    "name": "Force Fields",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "ice": {
+                    "name": "Ice",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "light": {
+                    "name": "Light",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "lightning": {
+                    "name": "Lightning",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "piercing": {
+                    "name": "Piercing",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "poison": {
+                    "name": "Poison",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "power": {
+                    "name": "Power",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "psychic": {
+                    "name": "Psychic",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "slashing": {
+                    "name": "Slashing",
+                    "resistant": false,
+                    "invulnerable": false
+                },
+                "sonic": {
+                    "name": "Sonic",
+                    "resistant": false,
+                    "invulnerable": false
+                }
+            },
+            "archtype": {
+                "name": "",
+                "strengths": "",
+                "flaws": ""
+            },
+            "powerDetails": {
+                "origin": "",
+                "description": ""
+            },
+            "secretIdentity": {
+                "dayJob": "",
+                "risk": "",
+                "finance": "",
+                "living": ""
+            },
+            "backgroundInfo": {
+                "description": ""
+            },
+            "temporaryPowers": {
+                "powerText": "",
+                "abilityText": ""
+            }
+        }
+      },
+      "Item": {
+        "types": ["power"],
+        "power": {
+          "rating": "A",
+          "description": "",
+          "abilities": []
+        }
+      }
+}
