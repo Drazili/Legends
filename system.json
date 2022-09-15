@@ -2,11 +2,11 @@
     "name": "legends",
     "title": "Legends",
     "description": "The superhero role playing game.",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Drazili",
-            "discord": "YOUR DISCORD USERNAME HERE"
+            "discord": "Drazili#5892"
         }
     ],
     "scripts": [],
@@ -23,6 +23,13 @@
     "socket": false,
     "gridDistance": 10,
     "gridUnits": "ft",
-    "primaryTokenAttribute": null,
-    "secondaryTokenAttribute": null
+    "primaryTokenAttribute": "hitPoints",
+    "secondaryTokenAttribute": "staminaPoints",
+    "manifest": "https://github.com/Drazili/Legends/releases...",
+    "download": "https://github.com/Drazili/Legends/releases...",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "10",
+        "maximum": "10"
+    }
 }
