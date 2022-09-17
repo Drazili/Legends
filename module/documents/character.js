@@ -57,7 +57,7 @@ export default class character extends Actor{
             var agility = skills.agility.powered;
             var intelligence = skills.intelligence.powered;
             var speed = skills.speed.powered;
-            var strength = skills.stamina.powered;
+            var strength = skills.strength.powered;
         }
         else{
             var stamina = skills.stamina.unpowered;
