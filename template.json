@@ -16,9 +16,7 @@
                 "heroPoints": 0,
                 "age": "",
                 "height": "",
-                "weight": "",
-                "empowered": true,
-                "npc": false
+                "weight": ""
             },
             "points": {
                 "hitPoints": {
@@ -39,12 +37,20 @@
                     "mod": 0,
                     "description": "Comes from any Powers/Abilities that grant Armour Points"
                 }
+            },
+            "settings": {
+                "showSettings": false,
+                "autoCalc": false,
+                "empowered": true,
+                "npc": false,
+                "addMods": false
             }
         },
         "character": {
             "templates": [
                 "generalInfo",
-                "points"
+                "points",
+                "settings"
             ],
             "skills": {
                 "agility": {
