@@ -2,7 +2,7 @@
     "name": "Legends",
     "title": "Legends",
     "description": "The superhero role playing game.",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "authors": [
         {
             "name": "Drazili",
@@ -26,7 +26,7 @@
     "primaryTokenAttribute": "hitPoints",
     "secondaryTokenAttribute": "staminaPoints",
     "manifest": "https://raw.githubusercontent.com/Drazili/Legends/master/system.json",
-    "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.0.1.zip",
+    "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.1.0.zip",
     "url": "https://github.com/Drazili/Legends",
     "compatibility": {
         "minimum": "10",
