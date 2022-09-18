@@ -11,13 +11,14 @@
                 },
                 "pronouns": "",
                 "level": 0,
-                "xpValue": 5,
+                "xpValue": 0,
                 "trainingPoints": 0,
                 "heroPoints": 0,
                 "age": "",
                 "height": "",
                 "weight": "",
-                "empowered": true
+                "empowered": true,
+                "npc": false
             },
             "points": {
                 "hitPoints": {
