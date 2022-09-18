@@ -16,11 +16,12 @@ export default class character extends Actor{
     }
 
     _calcAttr(){
-        const attributes = this.system.attributes;
+        const system = this.system;
+        const attributes = system.attributes;
 
-        this.system.hitPoints.max =     this._calcHP();
-        this.system.staminaPoints.max = this._calcSP();
-        this.system.armorPoints.max = this._calcAP();
+        system.hitPoints.max =     this._calcHP();
+        system.staminaPoints.max = this._calcSP();
+        system.armorPoints.max =   this._calcAP();
 
         attributes.initiative.value =   this._calcInitiative();
         attributes.defense.value =      this._calcDefense();
@@ -75,10 +76,7 @@ export default class character extends Actor{
     _calcAP(){
         const skills = this.system.skills;
 
-        var stamina = skillData.staminaData.hpBonusData[skills.stamina.powered];
-        var strength = skillData.strengthData.hpBonusData[skills.strength.powered];
-
-        var result = stamina + strength;
+        var result = 0;
         return result + this.system.armorPoints.mod;
     }
 
