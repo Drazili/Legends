@@ -12,7 +12,11 @@ export default class character extends Actor{
 
     _calcPowerSetting(){
         const setting = this.system.powerSetting
-        setting.startingPoints = (5*setting.value)
+        var npcModifier = 0;
+        if (this.system.npc) {
+            npcModifier = 5;
+        }
+        setting.startingPoints = (5*setting.value+npcModifier)
     }
 
     _calcAttr(){

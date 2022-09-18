@@ -29,11 +29,21 @@
                         <label class="info">Power Setting:</label>
                     </div>
                     <select class="info" name="system.powerSetting.value" data-dtype="Number">
+                        
                         {{#select actor.system.powerSetting.value}}
-                        <option value="1">Low</option>
-                        <option value="2">Medium</option>
-                        <option value="3">High</option>
-                        <option value="4">Godly</option>
+                            {{#unless actor.system.npc}}
+                            <option value="1">Low</option>
+                            <option value="2">Medium</option>
+                            <option value="3">High</option>
+                            <option value="4">Godly</option>
+                            {{/unless}}
+                            {{#if actor.system.npc}}
+                            <option value="1">Henchman</option>
+                            <option value="2">Deputy</option>
+                            <option value="3">Boss</option>
+                            <option value="4">Villain</option>
+                            <option value="5">Supervillain</option>
+                            {{/if}}
                         {{/select}}
                     </select>
                 </div>
@@ -82,9 +92,9 @@
                 <div class="flexrow info">
                     <div class="flexrow">
                         <div class="info fullgrey">
-                            <label class="info">Placeholder:</label>
+                            <label class="info">NPC:</label>
                         </div>
-                        <input class="info" type="checkbox" name="" data-dtype="Boolean">
+                        <input class="info" type="checkbox" name="system.npc" {{checked actor.system.npc}} data-dtype="Boolean">
                     </div>
                     <div class="flexrow">
                         <div class="info fullgrey">
