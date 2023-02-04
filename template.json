@@ -236,7 +236,31 @@
             "temporaryPowers": {
                 "powerText": "",
                 "abilityText": ""
+            },
+            "weapons": {
+                "0": {
+                    "name": "",
+                    "formula": "",
+                    "type": "",
+                    "cost": 0,
+                    "quality": ""
+                },
+                "1": {
+                    "name": "",
+                    "formula": "",
+                    "type": "",
+                    "cost": 0,
+                    "quality": ""
+                },
+                "2":{
+                    "name": "",
+                    "formula": "",
+                    "type": "",
+                    "cost": 0,
+                    "quality": ""
+                }
             }
+            
         }
       },
       "Item": {
