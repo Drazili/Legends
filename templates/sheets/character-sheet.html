@@ -154,14 +154,12 @@
     <div class="flexrow">
         <section class="border">
             <h3 class="sectionHeader">Section C, Subsection A: Attacks</h3>
-            <div class="flexrow list">
-                <div></div>
-                <div></div>
-                <button class="info rollable" data-roll="d20+@attributes.accuracy.value" data-label="Attack">Attack</button>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="flexrow list">
+            <div class="flexrow">
+                <div>
+                </div>
+                <div class="fullgrey split-left">
+                    <label class="info">Bonus</label>
+                </div>
                 <div class="fullgrey split-left">
                     <label class="info">Name</label>
                 </div>
@@ -179,11 +177,17 @@
             </div>
             {{#each actor.system.weapons as |weapon id|}}
             <div class="flexrow list">
+                <div class="info flexrow fullgrey">
+                    <div></div>
+                    <a class="info rollable" data-roll="d20+@attributes.accuracy.value + @weapons.{{id}}.attackBonus" data-label="Attack">Attack</a>
+                    <div></div>
+                </div>
+                <input class="info" type="text" name="system.weapons.{{id}}.attackBonus" value="{{weapon.attackBonus}}" data-dtype="String">
                 <input class="info" type="text" name="system.weapons.{{id}}.name" value="{{weapon.name}}" data-dtype="String">
                 <input class="info" type="text" name="system.weapons.{{id}}.formula" value="{{weapon.formula}}" data-dtype="String">
                 <input class="info" type="text" name="system.weapons.{{id}}.type" value="{{weapon.type}}" data-dtype="String">
                 <input class="info" type="number" name="system.weapons.{{id}}.cost" value="{{weapon.cost}}" data-dtype="Number">
-                <div class="info flexrow fullgrey">
+                <div class="info-right flexrow fullgrey">
                     <div></div>
                     <a class="info rollable" data-roll="@weapons.{{id}}.formula" data-label="{{weapon.name}}: {{weapon.type}} damage"> Damage</a>
                     <div></div>

@@ -239,6 +239,7 @@
             },
             "weapons": {
                 "0": {
+                    "attackBonus": "",
                     "name": "",
                     "formula": "",
                     "type": "",
@@ -246,6 +247,7 @@
                     "quality": ""
                 },
                 "1": {
+                    "attackBonus": "",
                     "name": "",
                     "formula": "",
                     "type": "",
@@ -253,6 +255,7 @@
                     "quality": ""
                 },
                 "2":{
+                    "attackBonus": "",
                     "name": "",
                     "formula": "",
                     "type": "",
