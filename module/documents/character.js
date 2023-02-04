@@ -8,6 +8,7 @@ export default class character extends Actor{
         if (this.system.autoCalc) {
             this._calcAttr();            
         }
+        // console.log(this.system);
     }
 
     _calcPowerSetting(){
@@ -172,7 +173,17 @@ export default class character extends Actor{
         }
 
         var result = strength;
-        return result + this.system.attributes.handToHand.mod;
+        var mod = this.system.attributes.handToHand.mod.trim();
+
+        if (mod != "") {
+            if (mod.charAt(0)!= '+') {
+                mod = '+' + mod;
+            }
+
+            result += mod
+        }
+
+        return result;
     }
 
     _calcRecoveries(){
