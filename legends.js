@@ -9,12 +9,10 @@ import characterSheet from "./module/sheets/characterSheet.js";
 
 Hooks.once("init", function(){
     console.log("Legends | Initializing legends");
-    // console.log(CombatEncounters);
-    // console.log(Actors);
-    // console.log(Items);
-    // console.log(Game);
-    // console.log(data.combats);
-    // console.log(system.combats);
+
+    CONFIG.Combat.initiative = {
+        formula: "1d20 + @attributes.initiative.value"
+    };    
 
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("legends", powerSheet, {makeDefault: true});
