@@ -1,36 +1,43 @@
 {
-    "name": "legends",
-    "title": "Legends",
-    "description": "The superhero role playing game.",
-    "version": "1.1.0",
-    "authors": [
-        {
-            "name": "Drazili",
-            "discord": "Drazili#5892"
-        }
-    ],
-    "scripts": [],
-    "esmodules": ["legends.js"],
-    "styles": ["./styles/charactersheet.css", "./styles/statsheet.css"],
-    "packs": [
-        {
-            "name": "powers",
-            "label": "Super powers",
-            "path": ".packs/powers.db",
-            "type": "Item"
-        }
-    ],
-    "socket": false,
-    "gridDistance": 10,
-    "gridUnits": "ft",
-    "primaryTokenAttribute": "hitPoints",
-    "secondaryTokenAttribute": "staminaPoints",
-    "manifest": "https://raw.githubusercontent.com/Drazili/Legends/master/system.json",
-    "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.1.0.zip",
-    "url": "https://github.com/Drazili/Legends",
-    "compatibility": {
-        "minimum": "10",
-        "verified": "10",
-        "maximum": "10"
+  "title": "Legends",
+  "description": "The superhero role playing game.",
+  "version": "1.1.0",
+  "authors": [
+    {
+      "name": "Drazili",
+      "discord": "Drazili#5892",
+      "flags": {}
     }
+  ],
+  "esmodules": [
+    "legends.js"
+  ],
+  "styles": [
+    "styles/charactersheet.css",
+    "styles/statsheet.css"
+  ],
+  "packs": [
+    {
+      "name": "powers",
+      "label": "Super powers",
+      "path": ".packs/powers.db",
+      "type": "Item",
+      "private": false,
+      "system": "legends",
+      "flags": {}
+    }
+  ],
+  "gridDistance": 10,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "hitPoints",
+  "secondaryTokenAttribute": "staminaPoints",
+  "manifest": "https://raw.githubusercontent.com/Drazili/Legends/master/system.json",
+  "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.1.0.zip",
+  "url": "https://github.com/Drazili/Legends",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "id": "legends"
 }
