@@ -32,7 +32,7 @@
   "primaryTokenAttribute": "hitPoints",
   "secondaryTokenAttribute": "staminaPoints",
   "manifest": "https://raw.githubusercontent.com/Drazili/Legends/master/system.json",
-  "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.1.0.zip",
+  "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.2.0.zip",
   "url": "https://github.com/Drazili/Legends",
   "compatibility": {
     "minimum": "10",
