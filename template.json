@@ -267,11 +267,19 @@
         }
       },
       "Item": {
-        "types": ["power"],
+        "types": ["power", "weapon"],
         "power": {
           "rating": "A",
           "description": "",
           "abilities": []
+        },
+        "weapon":{
+            "attackBonus": "",
+            "name": "",
+            "formula": "",
+            "type": "",
+            "cost": 0,
+            "quality": ""
         }
       }
 }

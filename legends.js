@@ -1,4 +1,4 @@
-import powerSheet from "./module/sheets/powerSheet.js";
+import itemSheet from "./module/sheets/itemSheet.js";
 import character from "./module/documents/character.js";
 import characterSheet from "./module/sheets/characterSheet.js";
 
@@ -15,7 +15,7 @@ Hooks.once("init", function(){
     };    
 
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("legends", powerSheet, {makeDefault: true});
+    Items.registerSheet("legends", itemSheet, {makeDefault: true});
 
     CONFIG.Actor.documentClass = character;
 
