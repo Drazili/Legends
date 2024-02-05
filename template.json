@@ -99,41 +99,49 @@
             "attributes": {
                 "initiative": {
                     "value": 0,
+                    "Max": 0,
                     "mod": 0,
                     "description": "Starts at 10 + Initiative Bonus from Agility OR Speed"
                 },
                 "accuracy": {
                     "value": 0,
+                    "Max": 0,
                     "mod": 0,
                     "description": "Comes from Intelligence OR Senses"
                 },
                 "inspiration": {
                     "value": 0,
+                    "Max": 0,
                     "mod": 0,
                     "description": "Comes from Charisma, gives a bonus to allies’ Accuracy and Skill Contest Rolls"
                 },
                 "recoveries": {
                     "value": 0,
+                    "Max": 0,
                     "mod": 0,
                     "description": "How many times you can heal 1d10 + your level per day"
                 },
                 "defense": {
                     "value": 0,
+                    "Max": 0,
                     "mod": 0,
                     "description": "Starts at 10 + Defense Bonus from Agility OR Senses"
                 },
                 "movement": {
                     "value": 0,
+                    "Max": 0,
                     "mod": 0,
                     "description": "Comes from Speed and is how fast you can sprint - use the same number for how many metres you can move in one turn"
                 },
                 "handToHand": {
                     "value": "",
+                    "Max": "",
                     "mod": "",
                     "description": "Comes from Strength, measures dice roll for melee damage."
                 },
                 "maxLift": {
                     "value": 0,
+                    "Max": 0,
                     "mod": 0,
                     "description": "Comes from Strength, the max amount in KG your character can comfortably lift"
                 }

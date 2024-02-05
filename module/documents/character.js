@@ -28,14 +28,14 @@ export default class character extends Actor{
         system.staminaPoints.max = this._calcSP();
         system.armorPoints.max =   this._calcAP();
 
-        attributes.initiative.value =   this._calcInitiative();
-        attributes.defense.value =      this._calcDefense();
-        attributes.accuracy.value =     this._calcAccuracy();
-        attributes.movement.value =     this._calcMovement();
-        attributes.inspiration.value =  this._calcInspiration();
-        attributes.handToHand.value =   this._calcHandtoHand();
-        attributes.recoveries.value =   this._calcRecoveries();
-        attributes.maxLift.value =      this._calcMaximumLift();
+        attributes.initiative.max =   this._calcInitiative();
+        attributes.defense.max =      this._calcDefense();
+        attributes.accuracy.max =     this._calcAccuracy();
+        attributes.movement.max =     this._calcMovement();
+        attributes.inspiration.max =  this._calcInspiration();
+        attributes.handToHand.max =   this._calcHandtoHand();
+        attributes.recoveries.max =   this._calcRecoveries();
+        attributes.maxLift.max =      this._calcMaximumLift();
 
     }
 

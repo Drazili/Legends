@@ -346,7 +346,7 @@
                                 <label class="info">Initiative Score:</label>
                             </div>
                             <div class="flexrow">
-                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.initiative.value" value="{{actor.system.attributes.initiative.value}}" data-dtype="Number">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.initiative.max" value="{{actor.system.attributes.initiative.max}}" data-dtype="Number">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.initiative.mod" value="{{actor.system.attributes.initiative.mod}}" data-dtype="Number">
                                 {{/if}}
@@ -357,7 +357,7 @@
                                 <label class="info">Defense Score:</label>
                             </div>
                             <div class="flexrow">
-                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.defense.value" value="{{actor.system.attributes.defense.value}}" data-dtype="Number">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.defense.max" value="{{actor.system.attributes.defense.max}}" data-dtype="Number">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.defense.mod" value="{{actor.system.attributes.defense.mod}}" data-dtype="Number">
                                 {{/if}}
@@ -368,10 +368,10 @@
                     <div class="flexrow list">
                         <div class="flexrow split-left">
                             <div class="info fullgrey" title="{{actor.system.attributes.accuracy.description}}">
-                                <a class="info rollable" data-roll="d20+@attributes.accuracy.value" data-label="Accuracy">Accuracy Bonus:</a>
+                                <a class="info rollable" data-roll="d20+@attributes.accuracy.max" data-label="Accuracy">Accuracy Bonus:</a>
                             </div>
                             <div class="flexrow">
-                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.accuracy.value" value="{{actor.system.attributes.accuracy.value}}" data-dtype="Number">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.accuracy.max" value="{{actor.system.attributes.accuracy.max}}" data-dtype="Number">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.accuracy.mod" value="{{actor.system.attributes.accuracy.mod}}" data-dtype="Number">
                                 {{/if}}
@@ -382,7 +382,7 @@
                                 <label class="info">Movement Speed:</label>
                             </div>
                             <div class="flexrow">
-                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.movement.value" value="{{actor.system.attributes.movement.value}}" data-dtype="Number">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.movement.max" value="{{actor.system.attributes.movement.max}}" data-dtype="Number">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.movement.mod" value="{{actor.system.attributes.movement.mod}}" data-dtype="Number">
                                 {{/if}}
@@ -396,7 +396,7 @@
                                 <label class="info">Inspiration Bonus:</label>
                             </div>
                             <div class="flexrow">
-                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.inspiration.value" value="{{actor.system.attributes.inspiration.value}}" data-dtype="Number">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.inspiration.max" value="{{actor.system.attributes.inspiration.max}}" data-dtype="Number">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.inspiration.mod" value="{{actor.system.attributes.inspiration.mod}}" data-dtype="Number">
                                 {{/if}}
@@ -404,10 +404,10 @@
                         </div>
                         <div class="flexrow">
                             <div class="info fullgrey" title="{{actor.system.attributes.handToHand.description}}">
-                                <a class="info rollable" data-roll="@attributes.handToHand.value" data-label="Hand to Hand">Hand to Hand Damage:</a>
+                                <a class="info rollable" data-roll="@attributes.handToHand.max" data-label="Hand to Hand">Hand to Hand Damage:</a>
                             </div>
                             <div class="flexrow">
-                                <input class="info" readonly="{{actor.system.autoCalc}}" type="text" name="system.attributes.handToHand.value" value="{{actor.system.attributes.handToHand.value}}" data-dtype="String">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="text" name="system.attributes.handToHand.max" value="{{actor.system.attributes.handToHand.max}}" data-dtype="String">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="text" name="system.attributes.handToHand.mod" value="{{actor.system.attributes.handToHand.mod}}" data-dtype="String">
                                 {{/if}}
@@ -422,7 +422,10 @@
                             </div>
                             <div class="flexrow">
                                 <div class="flexrow">
-                                    <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.recoveries.value" value="{{actor.system.attributes.recoveries.value}}" data-dtype="Number">
+                                    <input class="info" type="number" name="system.attributes.recoveries.value" value="{{actor.system.attributes.recoveries.value}}" data-dtype="Number">
+                                </div>
+                                <div class="flexrow">
+                                    <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.recoveries.max" value="{{actor.system.attributes.recoveries.max}}" data-dtype="Number">
                                 </div>
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.recoveries.mod" value="{{actor.system.attributes.recoveries.mod}}" data-dtype="Number">
@@ -434,7 +437,7 @@
                                 <label class="info">Maximum Lift:</label>
                             </div>
                             <div class="flexrow">
-                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.maxLift.value" value="{{actor.system.attributes.maxLift.value}}" data-dtype="Number">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.maxLift.max" value="{{actor.system.attributes.maxLift.max}}" data-dtype="Number">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.maxLift.mod" value="{{actor.system.attributes.maxLift.mod}}" data-dtype="Number">
                                 {{/if}}
