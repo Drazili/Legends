@@ -1,0 +1,574 @@
+<form class="actor-sheet {{cssClass}}" autocomplete="off">
+    {{#if actor.system.showSettings}}
+    <header class="sheet-header">
+        <section class="border">
+            <h3 class="sectionHeader">Section 0: Settings</h3>
+            <div class="flexrow">
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Powered:</label>
+                    </div>
+                    <input class="info" type="checkbox" name="system.empowered" {{checked actor.system.empowered}} data-dtype="Boolean">   
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">NPC:</label>
+                    </div>
+                    <input class="info" type="checkbox" name="system.npc" {{checked actor.system.npc}} data-dtype="Boolean">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Auto calc:</label>
+                    </div>
+                    <input class="info" type="checkbox" name="system.autoCalc" {{checked actor.system.autoCalc}} data-dtype="Boolean">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Modifiers:</label>
+                    </div>
+                    <input class="info" type="checkbox" name="system.addMods" {{checked actor.system.addMods}} data-dtype="Boolean">
+                </div>
+            </div>
+        </section>
+
+    </header>
+    {{/if}}
+    <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">General Information</li>
+        <li class="tab-link" data-tab="tab-2">Details</li>
+      </ul>
+      
+    <div id="tab-1" class="tab-content current">
+    <section class="border">
+        <h3 class="sectionHeader">Section A: General Information</h3>
+        <div class="flexrow">
+            <div class="flexcol">
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Code Name:</label>
+                    </div>
+                    <input class="info" type="text" name="name" value="{{actor.name}}" data-dtype="String">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Legal Name:</label>
+                    </div>
+                    <input class="info" type="text" name="system.legalName" value="{{actor.system.legalName}}" data-dtype="String">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Pronouns:</label>
+                    </div>
+                    <input class="info" type="text" name="system.pronouns" value="{{actor.system.pronouns}}" data-dtype="String">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Power Setting:</label>
+                    </div>
+                    <select class="info" name="system.powerSetting.value" data-dtype="Number">
+                        
+                        {{#select actor.system.powerSetting.value}}
+                            {{#unless actor.system.npc}}
+                            <option value="1">Low</option>
+                            <option value="2">Medium</option>
+                            <option value="3">High</option>
+                            <option value="4">Godly</option>
+                            {{/unless}}
+                            {{#if actor.system.npc}}
+                            <option value="1">Henchman</option>
+                            <option value="2">Deputy</option>
+                            <option value="3">Boss</option>
+                            <option value="4">Villain</option>
+                            <option value="5">Supervillain</option>
+                            {{/if}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+            <div class="flexcol">
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Level:</label>
+                    </div>
+                    <input class="info" type="number" name="system.level" value="{{actor.system.level}}" data-dtype="Number">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Current XP:</label>
+                    </div>
+                    <input class="info" type="number" name="system.xpValue" value="{{actor.system.xpValue}}" data-dtype="Number">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Training Points:</label>
+                    </div>
+                    <input class="info" type="number" name="system.trainingPoints" value="{{actor.system.trainingPoints}}" data-dtype="Number">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Hero Points:</label>
+                    </div>
+                    <input class="info" type="number" name="system.heroPoints" value="{{actor.system.heroPoints}}" data-dtype="Number">
+                </div>
+            </div>
+            <div class="flexcol">
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Show settings:</label>
+                    </div>
+                    <input class="info" type="checkbox" name="system.showSettings" {{checked actor.system.showSettings}} data-dtype="Boolean">   
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Age:</label>
+                    </div>
+                    <input class="info" type="text" name="system.age" value="{{actor.system.age}}" data-dtype="String">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Height:</label>
+                    </div>
+                    <input class="info" type="text" name="system.height" value="{{actor.system.height}}" data-dtype="String">
+                </div>
+                <div class="flexrow">
+                    <div class="info fullgrey">
+                        <label class="info">Weight:</label>
+                    </div>
+                    <input class="info" type="text" name="system.weight" value="{{actor.system.weight}}" data-dtype="String">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flexrow">
+        <section class="border">
+            <h3 class="sectionHeader">Section B: Powers</h3>
+            <div style="height: 200px;">   
+                {{editor actor.system.temporaryPowers.powerText target="system.temporaryPowers.powerText" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+        </section>
+
+        <section class="border">
+            <h3 class="sectionHeader">Section C: Abilities</h3>
+            <div style="height: 200px;">   
+                {{editor actor.system.temporaryPowers.abilityText target="system.temporaryPowers.abilityText" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+        </section>
+    </div>
+    <div class="flexrow">
+        <section class="border">
+          <h3 class="sectionHeader">Section C, Subsection A: Attacks</h3>
+          <div class="flexrow">
+            <div></div>
+            <div class="fullgrey split-left">
+              <label class="info">Bonus</label>
+            </div>
+            <div class="fullgrey split-left">
+              <label class="info">Name</label>
+            </div>
+            <div class="fullgrey split-left">
+              <label class="info">Formula</label>
+            </div>
+            <div class="fullgrey split-left">
+              <label class="info">Type</label>
+            </div>
+            <div class="fullgrey split-left">
+              <label class="info">SP cost</label>
+            </div>
+            <div></div>
+          </div>
+          
+          <!-- Container for dynamically added attacks -->
+          <div class="attacks-container">
+            {{#each actor.system.weapons as |weapon id|}}
+            <div class="flexrow list attack-row" data-id="{{id}}">
+              <div class="info flexrow fullgrey">
+                <div></div>
+                <a class="info rollable" data-roll="d20+@attributes.accuracy.max + @weapons.{{id}}.attackBonus" data-label="Attack">Attack</a>
+                <div></div>
+              </div>
+              <input class="info" type="text" name="system.weapons.{{id}}.attackBonus" value="{{weapon.attackBonus}}" data-dtype="String" placeholder="Bonus">
+              <input class="info" type="text" name="system.weapons.{{id}}.name" value="{{weapon.name}}" data-dtype="String" placeholder="Name">
+              <input class="info" type="text" name="system.weapons.{{id}}.formula" value="{{weapon.formula}}" data-dtype="String" placeholder="Formula">
+              <input class="info" type="text" name="system.weapons.{{id}}.type" value="{{weapon.type}}" data-dtype="String" placeholder="Damage Type">
+              <input class="info" type="number" name="system.weapons.{{id}}.cost" value="{{weapon.cost}}" data-dtype="Number" placeholder="SP Cost"> 
+              <div class="info-right flexrow fullgrey">
+                <div></div>
+                <a class="info rollable" data-roll="@weapons.{{id}}.formula" data-label="{{weapon.name}}: {{weapon.type}} damage"> Damage</a>
+                <div></div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+      
+          <button id="add-attack" type="button">Add Attack</button>
+          <button id="remove-attack" type="button">Remove Attack</button>
+        </section>
+      </div>
+      
+
+    <div class="flexrow">
+        <div class="flexcol">
+            <section class="border">
+                <h3 class="sectionHeader">Section D: Skills</h3>
+                    <div class="flexcol">
+                        <div class="flexrow">
+                            <div></div>
+                            <div class="fullgrey">
+                                <label class="info">Unpowered</label>
+                            </div>
+                            <div class="fullgrey">
+                                <label class="info">Powered</label>
+                            </div>
+                        </div>
+                        {{#if actor.system.empowered}}
+                        {{#each actor.system.skills as |skill key|}}
+                        <div class="flexrow list">
+                            <div class="info fullgrey">
+                                <a class="info rollable" data-roll="d20+@skills.{{key}}.powered" data-label="{{skill.name}}">{{skill.name}}</a>
+                            </div>
+                            <input class="info" type="number" name="system.skills.{{key}}.unpowered" value="{{skill.unpowered}}" data-dtype="Number">
+                            <input class="info" type="number" name="system.skills.{{key}}.powered" value="{{skill.powered}}" data-dtype="Number">
+                        </div>
+                        {{/each}}
+                        {{/if}}
+
+                        {{#unless actor.system.empowered}}
+                        {{#each actor.system.skills as |skill key|}}
+                        <div class="flexrow list">
+                            <div class="info fullgrey">
+                                <a class="info rollable" data-roll="d20+@skills.{{key}}.unpowered" data-label="{{skill.name}}">{{skill.name}}</a>
+                            </div>
+                            <input class="info" type="number" name="system.skills.{{key}}.unpowered" value="{{skill.unpowered}}" data-dtype="Number">
+                            <input class="info" type="number" name="system.skills.{{key}}.powered" value="{{skill.powered}}" data-dtype="Number">
+                        </div>
+                        {{/each}}
+                        {{/unless}}
+                    </div>
+            </section>
+            <div class="flexrow">
+                <section class="border">
+                    <h3 class="sectionHeader">Section F: Durability</h3>
+                        <div class="flexcol">
+                            <div class="flexrow fullgrey">
+                                <div class="info">
+                                    <label class="info">Type</label>
+                                </div>
+                                <div class="info fullgrey">
+                                    <label class="info">Resistant</label>
+                                </div>
+                                <div class="info fullgrey">
+                                    <label class="info">Invulnerable</label>
+                                </div>
+                            </div>
+                            {{#each actor.system.durability as |durability key|}}
+                            <div class="flexrow list">
+                                <div class="info fullgrey">
+                                    <label class="info">{{durability.name}}:</label>
+                                </div>
+                                <div>
+                                    <input class="info" type="checkbox" name="system.durability.{{key}}.resistant" {{checked durability.resistant}} data-dtype="Boolean">
+                                </div>
+                                <div>
+                                    <input  class="info" type="checkbox" name="system.durability.{{key}}.invulnerable" {{checked durability.invulnerable}} data-dtype="Boolean">
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                </section>
+            </div>
+        </div>
+        
+        <div>
+            <section class="border">
+                <h3 class="sectionHeader">Section E: Combat Attributes</h3>
+                <div class="flexcol">
+                    <div class="flexrow">
+                        <div></div>
+                        <div>
+                            <label class="info">Current</label>
+                        </div>
+                        <div>
+                            <label class="info">Maximum</label>
+                        </div>        
+                    </div>
+
+                    <div class="flexrow list">
+                        <div class="info fullgrey">
+                            <label class="info">Hit Points:</label>
+                        </div>
+                        <div class="info-right">
+                            <input class="info" type="number" name="system.hitPoints.value" value="{{actor.system.hitPoints.value}}" data-dtype="Number">
+                        </div>
+                        <div class="flexrow info-right">
+                            <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.hitPoints.max" value="{{actor.system.hitPoints.max}}" data-dtype="Number">
+                            {{#if actor.system.addMods}}
+                            <div class="iconBox">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <input class="info" type="number" name="system.hitPoints.mod" value="{{actor.system.hitPoints.mod}}" data-dtype="Number">
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    <div class="flexrow list">
+                        <div class="info fullgrey">
+                            <label class="info">Stamina Points:</label>
+                        </div>
+                        <div class="info-right">
+                            <input class="info" type="number" name="system.staminaPoints.value" value="{{actor.system.staminaPoints.value}}" data-dtype="Number">
+                        </div>
+                        <div class="flexrow info-right">
+                            <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.staminaPoints.max" value="{{actor.system.staminaPoints.max}}" data-dtype="Number">
+                            {{#if actor.system.addMods}}
+                            <div class="iconBox">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <input class="info" type="number" name="system.staminaPoints.mod" value="{{actor.system.staminaPoints.mod}}" data-dtype="Number">
+                            {{/if}}
+                        </div>
+                        
+                    </div>
+
+                    <div class="flexrow list">
+                        <div class="info fullgrey">
+                            <label class="info">Armor Points:</label>
+                        </div>
+                        <div class="info-right">
+                            <input class="info" type="number" name="system.armorPoints.value" value="{{actor.system.armorPoints.value}}" data-dtype="Number">
+                        </div>
+                        <div class="flexrow info-right">
+                            <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.armorPoints.max" value="{{actor.system.armorPoints.max}}" data-dtype="Number">
+                            {{#if actor.system.addMods}}
+                            <div class="iconBox">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <input class="info" type="number" name="system.armorPoints.mod" value="{{actor.system.armorPoints.mod}}" data-dtype="Number">
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flexcol">
+                    <div class="flexrow list">
+                        <div class="flexrow split-left">
+                            <div class="info fullgrey" title="{{actor.system.attributes.initiative.description}}">
+                                <label class="info">Initiative Score:</label>
+                            </div>
+                            <div class="flexrow">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.initiative.max" value="{{actor.system.attributes.initiative.max}}" data-dtype="Number">
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="number" name="system.attributes.initiative.mod" value="{{actor.system.attributes.initiative.mod}}" data-dtype="Number">
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="flexrow">
+                            <div class="info fullgrey" title="{{actor.system.attributes.defense.description}}">
+                                <label class="info">Defense Score:</label>
+                            </div>
+                            <div class="flexrow">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.defense.max" value="{{actor.system.attributes.defense.max}}" data-dtype="Number">
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="number" name="system.attributes.defense.mod" value="{{actor.system.attributes.defense.mod}}" data-dtype="Number">
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flexrow list">
+                        <div class="flexrow split-left">
+                            <div class="info fullgrey" title="{{actor.system.attributes.accuracy.description}}">
+                                <a class="info rollable" data-roll="d20+@attributes.accuracy.max" data-label="Accuracy">Accuracy Bonus:</a>
+                            </div>
+                            <div class="flexrow">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.accuracy.max" value="{{actor.system.attributes.accuracy.max}}" data-dtype="Number">
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="number" name="system.attributes.accuracy.mod" value="{{actor.system.attributes.accuracy.mod}}" data-dtype="Number">
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="flexrow">
+                            <div class="info fullgrey" title="{{actor.system.attributes.movement.description}}">
+                                <label class="info">Movement Speed:</label>
+                            </div>
+                            <div class="flexrow">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.movement.max" value="{{actor.system.attributes.movement.max}}" data-dtype="Number">
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="number" name="system.attributes.movement.mod" value="{{actor.system.attributes.movement.mod}}" data-dtype="Number">
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flexrow list">
+                        <div class="flexrow split-left">
+                            <div class="info fullgrey" title="{{actor.system.attributes.inspiration.description}}">
+                                <label class="info">Inspiration Bonus:</label>
+                            </div>
+                            <div class="flexrow">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.inspiration.max" value="{{actor.system.attributes.inspiration.max}}" data-dtype="Number">
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="number" name="system.attributes.inspiration.mod" value="{{actor.system.attributes.inspiration.mod}}" data-dtype="Number">
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="flexrow">
+                            <div class="info fullgrey" title="{{actor.system.attributes.handToHand.description}}">
+                                <a class="info rollable" data-roll="@attributes.handToHand.max" data-label="Hand to Hand">Hand to Hand Damage:</a>
+                            </div>
+                            <div class="flexrow">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="text" name="system.attributes.handToHand.max" value="{{actor.system.attributes.handToHand.max}}" data-dtype="String">
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="text" name="system.attributes.handToHand.mod" value="{{actor.system.attributes.handToHand.mod}}" data-dtype="String">
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flexrow list">
+                        <div class="flexrow split-left">
+                            <div class="info fullgrey" title="{{actor.system.attributes.recoveries.description}}">
+                                <a class="info rollable" data-roll="d10+@level" data-label="Recovery">Recoveries:</a>
+                            </div>
+                            <div class="flexrow">
+                                <div class="flexrow">
+                                    <input class="info" type="number" name="system.attributes.recoveries.value" value="{{actor.system.attributes.recoveries.value}}" data-dtype="Number">
+                                </div>
+                                <div class="flexrow">
+                                    <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.recoveries.max" value="{{actor.system.attributes.recoveries.max}}" data-dtype="Number">
+                                </div>
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="number" name="system.attributes.recoveries.mod" value="{{actor.system.attributes.recoveries.mod}}" data-dtype="Number">
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="flexrow">
+                            <div class="info fullgrey" title="{{actor.system.attributes.maxLift.description}}">
+                                <label class="info">Maximum Lift:</label>
+                            </div>
+                            <div class="flexrow">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.maxLift.max" value="{{actor.system.attributes.maxLift.max}}" data-dtype="Number">
+                                {{#if actor.system.addMods}}
+                                <input class="info" type="number" name="system.attributes.maxLift.mod" value="{{actor.system.attributes.maxLift.mod}}" data-dtype="Number">
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flexcol list">
+                    <div class="fullgrey info" style="margin-bottom: 5px; margin-left: 0px;">
+                        <p style="margin-left: 10px;">On your turn in combat, you may perform 2 Actions from the list below:</p>
+                    </div>
+                    <div class="flexrow list">
+                        <div class="split-left info">
+                            <p>1. Activate a Power</p>
+                        </div>
+                        <div class="info">
+                            <p>2. Attack</p>
+                        </div>
+                    </div>
+                    <div class="flexrow list">
+                        <div class="split-left info">
+                            <p>3. Combat Maneuver</p>
+                        </div>
+                        <div class="info">
+                            <p>4. Interact with an Ally or the Environment</p>                            
+                        </div>
+
+                    </div>
+                    <div class="flexrow list">
+                        <div class="split-left info">
+                            <p>5. Interact with an Enemy</p>
+                        </div>
+                        <div class="info">
+                            <p>6. Move</p>                            
+                        </div>
+                    </div>
+                    <div class="flexrow list">
+                        <div class="split-left info">
+                            <p>7. Recovery (Costs 2 Actions)</p>
+                        </div>
+                        <div class="info">
+                            <p>8. Skill Contest</p>                            
+                        </div>
+                    </div>
+                    <div class="flexrow list">
+                        <div class="split-left info">
+                            <p>9. Stall an Action</p>
+                        </div>
+                        <div class="info">
+                            <p>10. Improvise an Action</p>                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    </div> <!-- Close the first tab content -->
+    <div id="tab-2" class="tab-content">
+    <div class="flexrow">
+        <section class="border">
+            <h3 class="sectionHeader">Section G: Personality Traits</h3>
+            <div class="flexrow">
+                <p>Archtype:</p>
+                <input type="text" name="system.archtype.name" value="{{actor.system.archtype.name}}" data-dtype="String">
+            </div>
+            <p>Strengths:</p>
+            <div style="height: 150px;">   
+                {{editor actor.system.archtype.strengths target="system.archtype.strengths" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+            <p>Flaws:</p>
+            <div style="height: 150px;">
+                {{editor actor.system.archtype.flaws target="system.archtype.flaws" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+        </section>
+
+        <section class="border">
+            <h3 class="sectionHeader">Section H: Power Details</h3>
+            <p>Power Origins:</p>
+            <div style="height: 150px;">   
+                {{editor actor.system.powerDetails.origin target="system.powerDetails.origin" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+            <p>Description:</p>
+            <div style="height: 188px;">
+                {{editor actor.system.powerDetails.description target="system.powerDetails.description" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+        </section>
+    </div>
+
+    <div class="flexrow">
+        <section class="border">
+            <h3 class="sectionHeader">Section I: Secret Identity</h3>
+            <p>Day Job:</p>
+            <div style="height: 150px;">   
+                {{editor actor.system.secretIdentity.dayJob target="system.secretIdentity.dayJob" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+            <p>Risk of getting away:</p>
+            <div style="height: 150px;">   
+                {{editor actor.system.secretIdentity.risk target="system.secretIdentity.risk" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+            <p>Financial Situation:</p>
+            <div style="height: 150px;">
+                {{editor actor.system.secretIdentity.finance target="system.secretIdentity.finance" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+            <p>Living Situation:</p>
+            <div style="height: 150px;">
+                {{editor actor.system.secretIdentity.living target="system.secretIdentity.living" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+            </div>
+        </section>
+
+        <section class="border">
+            <h3 class="sectionHeader">Section J: Picture on file</h3>
+            <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" style="max-height: 512px;"/>
+        </section>
+    </div>
+
+    <section class="border">
+        <h3 class="sectionHeader">Section K: Background Information</h3>
+        <div style="height: 300px;">   
+            {{editor actor.system.backgroundInfo.description target="system.backgroundInfo.description" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
+        </div>
+    </section>
+    </div>
+</form>

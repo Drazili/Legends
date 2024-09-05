@@ -1,0 +1,163 @@
+.actor-sheet{
+    background-color: lightgray;
+}
+
+.editor,
+.editor-content{
+    background-color: aliceblue;
+    height: 100%;
+}
+
+section.border{
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+    padding: 5px;
+}
+
+h3.sectionHeader{
+    background-color: black;
+    color: white;
+    padding-left: 2px;
+}
+
+label.info{
+    background-color: darkgray;
+    margin-left: 2px;
+}
+
+div.info{
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+div.info-right{
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+input.info, select.info{
+    background-color: aliceblue;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+div.list{
+    border: solid thin black;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+div.iconBox{
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+div.fullgrey{
+    background-color: darkgray;
+}
+
+.split-right{
+    border-left: thin solid black;
+}
+
+.split-left{
+    border-right: thin solid black;
+}
+
+input[readonly="true"] {
+    background-color: lightgrey;
+}
+
+.tabs {
+    display: flex;
+    cursor: pointer;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tab-link {
+    padding: 10px;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+  }
+  
+  .tab-link.current {
+    background: #ddd;
+    border-bottom: none;
+  }
+  
+  .tab-content {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .tab-content.current {
+    display: block;
+  }
+
+  .attacks-container {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+/* Ensure that the labels and input boxes are aligned */
+.attacks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .attack-labels, .attack-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Equal spacing for each column */
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .label {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Make input fields and buttons more compact */
+  .attack-row .info {
+    width: 100%;
+    padding: 4px;
+  }
+  
+  .attack-row .info.rollable {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 4px;
+  }
+  
+  /* Align button sizes and spaces */
+  .flexrow.list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .info-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
