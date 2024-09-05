@@ -33,7 +33,12 @@
 
     </header>
     {{/if}}
-
+    <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">General Information</li>
+        <li class="tab-link" data-tab="tab-2">Details</li>
+      </ul>
+      
+    <div id="tab-1" class="tab-content current">
     <section class="border">
         <h3 class="sectionHeader">Section A: General Information</h3>
         <div class="flexrow">
@@ -150,52 +155,57 @@
             </div>
         </section>
     </div>
-
     <div class="flexrow">
         <section class="border">
-            <h3 class="sectionHeader">Section C, Subsection A: Attacks</h3>
-            <div class="flexrow">
-                <div>
-                </div>
-                <div class="fullgrey split-left">
-                    <label class="info">Bonus</label>
-                </div>
-                <div class="fullgrey split-left">
-                    <label class="info">Name</label>
-                </div>
-                <div class="fullgrey split-left">
-                    <label class="info">Formula</label>
-                </div>
-                <div class="fullgrey split-left">
-                    <label class="info">Type</label>
-                </div>
-                <div class="fullgrey split-left">
-                    <label class="info">SP cost</label>
-                </div>
-                <div>
-                </div>
+          <h3 class="sectionHeader">Section C, Subsection A: Attacks</h3>
+          <div class="flexrow">
+            <div></div>
+            <div class="fullgrey split-left">
+              <label class="info">Bonus</label>
             </div>
+            <div class="fullgrey split-left">
+              <label class="info">Name</label>
+            </div>
+            <div class="fullgrey split-left">
+              <label class="info">Formula</label>
+            </div>
+            <div class="fullgrey split-left">
+              <label class="info">Type</label>
+            </div>
+            <div class="fullgrey split-left">
+              <label class="info">SP cost</label>
+            </div>
+            <div></div>
+          </div>
+          
+          <!-- Container for dynamically added attacks -->
+          <div class="attacks-container">
             {{#each actor.system.weapons as |weapon id|}}
-            <div class="flexrow list">
-                <div class="info flexrow fullgrey">
-                    <div></div>
-                    <a class="info rollable" data-roll="d20+@attributes.accuracy.value + @weapons.{{id}}.attackBonus" data-label="Attack">Attack</a>
-                    <div></div>
-                </div>
-                <input class="info" type="text" name="system.weapons.{{id}}.attackBonus" value="{{weapon.attackBonus}}" data-dtype="String">
-                <input class="info" type="text" name="system.weapons.{{id}}.name" value="{{weapon.name}}" data-dtype="String">
-                <input class="info" type="text" name="system.weapons.{{id}}.formula" value="{{weapon.formula}}" data-dtype="String">
-                <input class="info" type="text" name="system.weapons.{{id}}.type" value="{{weapon.type}}" data-dtype="String">
-                <input class="info" type="number" name="system.weapons.{{id}}.cost" value="{{weapon.cost}}" data-dtype="Number">
-                <div class="info-right flexrow fullgrey">
-                    <div></div>
-                    <a class="info rollable" data-roll="@weapons.{{id}}.formula" data-label="{{weapon.name}}: {{weapon.type}} damage"> Damage</a>
-                    <div></div>
-                </div>
+            <div class="flexrow list attack-row" data-id="{{id}}">
+              <div class="info flexrow fullgrey">
+                <div></div>
+                <a class="info rollable" data-roll="d20+@attributes.accuracy.max + @weapons.{{id}}.attackBonus" data-label="Attack">Attack</a>
+                <div></div>
+              </div>
+              <input class="info" type="text" name="system.weapons.{{id}}.attackBonus" value="{{weapon.attackBonus}}" data-dtype="String" placeholder="Bonus">
+              <input class="info" type="text" name="system.weapons.{{id}}.name" value="{{weapon.name}}" data-dtype="String" placeholder="Name">
+              <input class="info" type="text" name="system.weapons.{{id}}.formula" value="{{weapon.formula}}" data-dtype="String" placeholder="Formula">
+              <input class="info" type="text" name="system.weapons.{{id}}.type" value="{{weapon.type}}" data-dtype="String" placeholder="Damage Type">
+              <input class="info" type="number" name="system.weapons.{{id}}.cost" value="{{weapon.cost}}" data-dtype="Number" placeholder="SP Cost"> 
+              <div class="info-right flexrow fullgrey">
+                <div></div>
+                <a class="info rollable" data-roll="@weapons.{{id}}.formula" data-label="{{weapon.name}}: {{weapon.type}} damage"> Damage</a>
+                <div></div>
+              </div>
             </div>
             {{/each}}
+          </div>
+      
+          <button id="add-attack" type="button">Add Attack</button>
+          <button id="remove-attack" type="button">Remove Attack</button>
         </section>
-    </div>
+      </div>
+      
 
     <div class="flexrow">
         <div class="flexcol">
@@ -495,7 +505,8 @@
             </section>
         </div>
     </div>
-
+    </div> <!-- Close the first tab content -->
+    <div id="tab-2" class="tab-content">
     <div class="flexrow">
         <section class="border">
             <h3 class="sectionHeader">Section G: Personality Traits</h3>
@@ -559,5 +570,5 @@
             {{editor actor.system.backgroundInfo.description target="system.backgroundInfo.description" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
         </div>
     </section>
+    </div>
 </form>
-
