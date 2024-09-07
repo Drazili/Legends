@@ -244,34 +244,7 @@
             "temporaryPowers": {
                 "powerText": "",
                 "abilityText": ""
-            },
-            "weapons": {
-                "0": {
-                    "attackBonus": "",
-                    "name": "",
-                    "formula": "",
-                    "type": "",
-                    "cost": 0,
-                    "quality": ""
-                },
-                "1": {
-                    "attackBonus": "",
-                    "name": "",
-                    "formula": "",
-                    "type": "",
-                    "cost": 0,
-                    "quality": ""
-                },
-                "2":{
-                    "attackBonus": "",
-                    "name": "",
-                    "formula": "",
-                    "type": "",
-                    "cost": 0,
-                    "quality": ""
-                }
-            }
-            
+            }            
         }
       },
       "Item": {
@@ -279,15 +252,17 @@
         "power": {
           "rating": "A",
           "description": "",
-          "abilities": []
+          "abilities": [],
+          "power": true
         },
         "weapon":{
-            "attackBonus": "",
-            "name": "",
-            "formula": "",
-            "type": "",
-            "cost": 0,
-            "quality": ""
+            "attackBonus": "0",
+            "formula": "1d4",
+            "type": "Kinetic blunt",
+            "cost": 5,
+            "quality": "",
+            "handToHand": true,
+            "weapon": true
         }
       }
 }

@@ -157,52 +157,60 @@
     </div>
     <div class="flexrow">
         <section class="border">
-          <h3 class="sectionHeader">Section C, Subsection A: Attacks</h3>
-          <div class="flexrow">
-            <div></div>
-            <div class="fullgrey split-left">
-              <label class="info">Bonus</label>
-            </div>
-            <div class="fullgrey split-left">
-              <label class="info">Name</label>
-            </div>
-            <div class="fullgrey split-left">
-              <label class="info">Formula</label>
-            </div>
-            <div class="fullgrey split-left">
-              <label class="info">Type</label>
-            </div>
-            <div class="fullgrey split-left">
-              <label class="info">SP cost</label>
-            </div>
-            <div></div>
-          </div>
+          <h3 class="sectionHeader">Section C, Subsection A: Attacks and weaponry</h3>
           
           <!-- Container for dynamically added attacks -->
           <div class="attacks-container">
-            {{#each actor.system.weapons as |weapon id|}}
-            <div class="flexrow list attack-row" data-id="{{id}}">
-              <div class="info flexrow fullgrey">
-                <div></div>
-                <a class="info rollable" data-roll="d20+@attributes.accuracy.max + @weapons.{{id}}.attackBonus" data-label="Attack">Attack</a>
-                <div></div>
-              </div>
-              <input class="info" type="text" name="system.weapons.{{id}}.attackBonus" value="{{weapon.attackBonus}}" data-dtype="String" placeholder="Bonus">
-              <input class="info" type="text" name="system.weapons.{{id}}.name" value="{{weapon.name}}" data-dtype="String" placeholder="Name">
-              <input class="info" type="text" name="system.weapons.{{id}}.formula" value="{{weapon.formula}}" data-dtype="String" placeholder="Formula">
-              <input class="info" type="text" name="system.weapons.{{id}}.type" value="{{weapon.type}}" data-dtype="String" placeholder="Damage Type">
-              <input class="info" type="number" name="system.weapons.{{id}}.cost" value="{{weapon.cost}}" data-dtype="Number" placeholder="SP Cost"> 
-              <div class="info-right flexrow fullgrey">
-                <div></div>
-                <a class="info rollable" data-roll="@weapons.{{id}}.formula" data-label="{{weapon.name}}: {{weapon.type}} damage"> Damage</a>
-                <div></div>
-              </div>
-            </div>
+            {{#each data.items as |item id|}}
+                {{#with item.system as |weapon|}}
+                {{#if weapon.weapon}}
+                <li class="item flexrow list attack-row" data-item-id="{{item._id}}">
+                    <div class="flexrow fullgrey">
+                        <div></div>
+                            <a class="info rollable" data-roll="d20 + {{../../actor.system.attributes.accuracy.max}} + {{weapon.attackBonus}}" data-label="Attack">Attack</a>
+                        <div></div>
+                    </div>
+
+                    {{#if weapon.handToHand}}
+                    <div class="flexrow fullgrey">
+                        <div></div>
+                        <a class="info rollable" data-roll="{{../../actor.system.attributes.handToHand.max}} + {{weapon.formula}}" data-label="{{weapon.name}}: {{weapon.type}} damage"> Damage</a>
+                        <div></div>
+                    </div>
+                    {{else}}
+                    <div class="flexrow fullgrey">
+                        <div></div>
+                        <a class="info rollable" data-roll="{{weapon.formula}}" data-label="{{item.name}}: {{weapon.type}} damage"> Damage</a>
+                        <div></div>
+                    </div>
+                    {{/if}}
+
+                    <input class="info" type="text" name="{{item.name}}" value="{{item.name}}" data-dtype="String" placeholder="Name" disabled="true">
+                    <input class="info" type="text" name="{{weapon.attackBonus}}" value="{{weapon.attackBonus}}" data-dtype="String" placeholder="Bonus" disabled="true">
+                    <input class="info" type="text" name="{{weapon.formula}}" value="{{weapon.formula}}" data-dtype="String" placeholder="Damage dice" disabled="true">
+                    <input class="info" type="text" name="{{weapon.type}}" value="{{weapon.type}}" data-dtype="String" placeholder="Damage type" disabled="true">
+                    <div class="flexrow split-left">
+                        <div></div>
+                        <input class="info" type="number" name="{{weapon.cost}}" value="{{weapon.cost}}" data-dtype="String" placeholder="SP Cost" disabled="true">
+                        <p class="info">SP</p>
+                        <div></div>
+                    </div>
+                
+                    <div class="item-controls flexrow">
+                        <div></div>
+                        <a class="item-control" title="Edit weapon"" data-action="edit"><i class="fas fa-edit"></i></a>
+                        <div></div>
+                        <a class="item-control" title="Delete weapon"" data-action="delete"><i class="fas fa-trash"></i></a>
+                        <div></div>
+                    </div>
+                </li>
+                {{/if}}
+                {{/with}}
             {{/each}}
           </div>
-      
-          <button id="add-attack" type="button">Add Attack</button>
-          <button id="remove-attack" type="button">Remove Attack</button>
+          <p>
+            <a class="item-control" title="CreateWeapon" data-action="create"><i class="fas fa-plus"></i> Create weapon or attack</a>
+          </p>
         </section>
       </div>
       
