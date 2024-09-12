@@ -6,8 +6,9 @@ export default class characterSheet extends ActorSheet{
   activateListeners(html){
       super.activateListeners(html)
       
-      html.find(".item-control").click(this._onWeaponControl.bind(this));
+      html.find(".item-control").click(this._onItemControl.bind(this));
       html.find('.rollable').click(this._onRoll.bind(this));
+      html.find('.rollInitiative').click(this._onInitiativeRoll.bind(this));
   }
 
   /**
@@ -15,7 +16,7 @@ export default class characterSheet extends ActorSheet{
  * @param event
  * @private
  */
-  _onWeaponControl(event) {
+  _onItemControl(event) {
     event.preventDefault();
 
     // Obtain event data
@@ -24,16 +25,52 @@ export default class characterSheet extends ActorSheet{
     const item = this.actor.items.get(li?.dataset.itemId);
 
     // Handle different actions
+    const cls = getDocumentClass("Item");
     switch ( button.dataset.action ) {
-      case "create":
-        const cls = getDocumentClass("Item");
+      case "create-weapon":
         return cls.create({name: "New weapon", type: "weapon"}, {parent: this.actor});
+      case "create-teammate":
+        return cls.create({name: "New Teammate", type: "teammate"}, {parent: this.actor});
       case "edit":
         return item.sheet.render(true);
       case "delete":
         return item.delete();
     }
     // console.log(this.actor);
+  }
+
+  async _onInitiativeRoll(event){
+    event.preventDefault();
+
+    const actor = this.actor;
+    const combat = game.combat;
+
+    const combatants = combat.getCombatantsByActor(actor);
+    const mainCombatant = combatants[0];
+    const combatantIds = []
+
+    // Delete every duplicate combatant except for the first one.
+    combatants.forEach(combatant => {
+      if (combatant != mainCombatant) {
+        combatantIds.push(combatant.id);
+      }
+    });
+    await combat.deleteEmbeddedDocuments("Combatant", combatantIds);
+
+    // Roll or reroll initiative
+    await game.combat.rollInitiative(mainCombatant.id);
+    const mainInitiative = mainCombatant.initiative;
+
+    // Prep new initiatives for the duplicate combatants.
+    let newInitiative = mainInitiative - 10;
+    let newCombatant = null;
+
+    // Create new combatants as long as their new initiative would be greater than 0.
+    while (newInitiative > 0) {
+      newCombatant = await combat.createEmbeddedDocuments("Combatant", [mainCombatant]);
+      combat.setInitiative(newCombatant[0].id, newInitiative);
+      newInitiative = newInitiative - 10;
+    }
   }
 
   _onRoll(event) {
