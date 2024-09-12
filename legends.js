@@ -32,13 +32,25 @@ Hooks.on('renderActorSheet', (app, html, data) => {
   const tabLinks = html.find('.tab-link');
   const tabContents = html.find('.tab-content');
 
+  // Retrieve the active tab from localStorage or default to 'tab-1'
+  let activeTab = localStorage.getItem('activeTab') || 'tab-1';
+
+  // Set the initial active tab based on the stored state
+  tabLinks.removeClass('current');
+  tabContents.removeClass('current');
+  html.find(`.tab-link[data-tab="${activeTab}"]`).addClass('current');
+  html.find(`#${activeTab}`).addClass('current');
+
+  // Tab click event listener
   tabLinks.on('click', function () {
     const tabId = $(this).data('tab');
 
+    // Update the tab state and persist it to localStorage
     tabLinks.removeClass('current');
     tabContents.removeClass('current');
-
     $(this).addClass('current');
     html.find(`#${tabId}`).addClass('current');
+
+    localStorage.setItem('activeTab', tabId); // Store the active tab
   });
 });
