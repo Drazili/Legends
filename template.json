@@ -7,7 +7,21 @@
                 "legalName": "",
                 "powerSetting": {
                     "value": "",
-                    "startingPoints": ""
+                    "startingPoints": "",
+                    "options": {},
+                    "heroOptions":{
+                        "1": "Low",
+                        "2": "Medium",
+                        "3": "High",
+                        "4": "Godly"
+                    },
+                    "villainOptions": {
+                        "1": "Henchman",
+                        "2": "Deputy",
+                        "3": "Boss",
+                        "4": "Villain",
+                        "5": "Supervillain"
+                    }
                 },
                 "pronouns": "",
                 "level": 0,
@@ -16,7 +30,8 @@
                 "heroPoints": 0,
                 "age": "",
                 "height": "",
-                "weight": ""
+                "weight": "",
+                "totalInsp": 0
             },
             "points": {
                 "hitPoints": {
@@ -39,11 +54,12 @@
                 }
             },
             "settings": {
-                "showSettings": false,
-                "autoCalc": false,
+                "showSettings": true,
+                "autoCalc": true,
                 "empowered": true,
                 "npc": false,
-                "addMods": false
+                "addMods": true,
+                "autoInsp": true
             }
         },
         "character": {
@@ -57,42 +73,49 @@
                     "name": "Agility",
                     "unpowered": 0,
                     "powered": 0,
+                    "modifer": 0,
                     "max": 15
                 },
                 "charisma": {
                     "name": "Charisma",
                     "unpowered": 0,
                     "powered": 0,
+                    "modifer": 0,
                     "max": 15
                 },
                 "intelligence": {
                     "name": "Intelligence",
                     "unpowered": 0,
                     "powered": 0,
+                    "modifer": 0,
                     "max": 15
                 },
                 "senses": {
                     "name": "Senses",
                     "unpowered": 0,
                     "powered": 0,
+                    "modifer": 0,
                     "max": 15
                 },
                 "speed": {
                     "name": "Speed",
                     "unpowered": 0,
                     "powered": 0,
+                    "modifer": 0,
                     "max": 15
                 },
                 "stamina": {
                     "name": "Stamina",
                     "unpowered": 0,
                     "powered": 0,
+                    "modifer": 0,
                     "max": 15
                 },
                 "strength": {
                     "name": "Strength",
                     "unpowered": 0,
                     "powered": 0,
+                    "modifer": 0,
                     "max": 15
                 }
             },
@@ -245,49 +268,35 @@
                 "powerText": "",
                 "abilityText": ""
             },
-            "weapons": {
-                "0": {
-                    "attackBonus": "",
-                    "name": "",
-                    "formula": "",
-                    "type": "",
-                    "cost": 0,
-                    "quality": ""
-                },
-                "1": {
-                    "attackBonus": "",
-                    "name": "",
-                    "formula": "",
-                    "type": "",
-                    "cost": 0,
-                    "quality": ""
-                },
-                "2":{
-                    "attackBonus": "",
-                    "name": "",
-                    "formula": "",
-                    "type": "",
-                    "cost": 0,
-                    "quality": ""
-                }
-            }
-            
+            "goals": {
+                "description": ""
+            },
+            "notes": {
+                "description": ""
+            }  
         }
       },
       "Item": {
-        "types": ["power", "weapon"],
+        "types": ["power", "weapon", "teammate"],
         "power": {
           "rating": "A",
           "description": "",
-          "abilities": []
+          "abilities": [],
+          "power": true
         },
         "weapon":{
-            "attackBonus": "",
-            "name": "",
-            "formula": "",
-            "type": "",
-            "cost": 0,
-            "quality": ""
+            "attackBonus": "0",
+            "formula": "1d4",
+            "type": "Kinetic blunt",
+            "cost": 5,
+            "quality": "",
+            "handToHand": true,
+            "weapon": true
+        },
+        "teammate":{
+            "inspiration": 0,
+            "inTeam": true,
+            "teammate": true
         }
       }
 }

@@ -1,0 +1,20 @@
+<form class="item-sheet {{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </header>
+    <section class="border">
+        <div class="flexrow list">
+            <div class="info fullgrey">
+                <p class="info">Inspiration bonus:</p>
+            </div>
+            <input class="info" type="number" name="system.inspiration" value="{{item.system.inspiration}}" data-dtype="Number" placeholder="Inspiration">
+            <div class="flexrow">
+                <div class="info fullgrey">
+                    <p class="info">In team:</p>
+                </div>
+                <input class="info" type="checkbox" name="system.inTeam" {{checked item.system.inTeam}} data-dtype="Boolean">
+            </div>
+        </div>
+    </section>
+</form>
