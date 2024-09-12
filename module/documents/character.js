@@ -1,23 +1,50 @@
 import * as skillData from "./skillData.js";
-export default class character extends Actor{
+export default class LegendsCharacter extends Actor{
 
     prepareDerivedData(){
+        this._setPowerSettingOptions();
         if (this.system.powerSetting.value != "") {
             this._calcPowerSetting();
         }
         if (this.system.autoCalc) {
+            if (this.system.empowered) {
+                this._calcSkills();
+            }
+            
             this._calcAttr();            
+        }
+        if (this.system.autoInsp) {
+            this._calcInspoBonus();
         }
         // console.log(this.system);
     }
+    _setPowerSettingOptions(){
+        const setting = this.system.powerSetting;
+        const npc = this.system.npc;
+
+        if (!npc) {
+            setting.options = setting.heroOptions;
+        } else {
+            setting.options = setting.villainOptions;
+        }
+    }
 
     _calcPowerSetting(){
-        const setting = this.system.powerSetting
+        const setting = this.system.powerSetting;
         var npcModifier = 0;
         if (this.system.npc) {
             npcModifier = 5;
         }
         setting.startingPoints = (5*setting.value+npcModifier)
+    }
+
+    _calcSkills(){
+        const skills = this.system.skills;
+        Object.values(skills).forEach(skill => {
+            if (skill.powered < skill.unpowered) {
+                skill.powered = skill.unpowered;
+            }
+        });
     }
 
     _calcAttr(){
@@ -210,5 +237,15 @@ export default class character extends Actor{
 
         var result = strength;
         return result + this.system.attributes.maxLift.mod;
+    }
+
+    _calcInspoBonus(){
+        const items = this.items._source;
+        const teammates = items.filter(item => {return item.type == "teammate" && item.system.inTeam;});
+
+        var sum = 0;
+        teammates.forEach(teammate => {sum += teammate.system.inspiration;});
+
+        this.system.totalInsp = sum;
     }
 }

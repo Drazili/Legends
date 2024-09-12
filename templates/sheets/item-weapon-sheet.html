@@ -1,9 +1,41 @@
-<form class="{{cssClass}}" autocomplete="off">
+<form class="item-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-        <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h1>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </header>
-    <div>
-        <h3>Formula: {{item.system.formula}}</h3>
-    </div>
+    <section class="border">
+        <div class="flexrow list">
+            <div class="info fullgrey">
+                <p class="info">Attack bonus:</p>
+            </div>
+            <input class="info" type="text" name="system.attackBonus" value="{{item.system.attackBonus}}" data-dtype="String" placeholder="Bonus">
+            <div></div>
+        </div>
+        <div class="flexrow list">
+            <div class="info fullgrey">
+                <p class="info">Damage bonus:</p>
+            </div>
+            <input class="info" type="text" name="system.formula" value="{{item.system.formula}}" data-dtype="String" placeholder="Damage dice">
+            <div class="flexrow">
+                <div class="info fullgrey">
+                    <p class="info">Melee:</p>
+                </div>
+                <input class="info" type="checkbox" name="system.handToHand" {{checked item.system.handToHand}} data-dtype="Boolean">
+            </div>
+        </div>
+        <div class="flexrow list">
+            <div class="info fullgrey">
+                <p class="info">Damage type:</p>
+            </div>
+            <input class="info" type="text" name="system.type" value="{{item.system.type}}" data-dtype="String" placeholder="Damage type">
+            <div></div>
+        </div>
+        <div class="flexrow list">
+            <div class="info fullgrey">
+                <p class="info">Stamina cost:</p>
+            </div>
+            <input class="info" type="number" name="system.cost" value="{{item.system.cost}}" data-dtype="String" placeholder="SP Cost">
+            <div></div>
+        </div>
+    </section>
 </form>
