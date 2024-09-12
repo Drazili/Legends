@@ -237,7 +237,7 @@
                         {{#each actor.system.skills as |skill key|}}
                         <div class="flexrow list">
                             <div class="info fullgrey">
-                                <a class="info rollable" data-roll="1d20[Test]+@skills.{{key}}.powered + {{../actor.system.totalInsp}}[Inspiration] +@skills.{{key}}.modifer[modifer]" data-label="{{skill.name}}">{{skill.name}}</a>
+                                <a class="info rollable" data-roll="1d20+@skills.{{key}}.powered + {{../actor.system.totalInsp}}[Inspiration] +@skills.{{key}}.modifer[modifer]" data-label="{{skill.name}}">{{skill.name}}</a>
                             </div>
                             <input class="info" type="number" name="system.skills.{{key}}.unpowered" value="{{skill.unpowered}}" data-dtype="Number">
                             <input class="info" type="number" name="system.skills.{{key}}.powered" value="{{skill.powered}}" data-dtype="Number">
