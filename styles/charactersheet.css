@@ -146,6 +146,8 @@ input[readonly="true"] {
     cursor: pointer;
     text-align: center;
     margin: 0 4px;
+    /* color: blue;
+    text-decoration: underline; */
   }
   
   /* Align button sizes and spaces */
