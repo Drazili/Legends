@@ -1,5 +1,5 @@
 {
-  "id": "legendsSuperheroRPG",
+  "id": "legends",
   "title": "Legends: The Superhero roleplaying Game",
   "description": "Unoffical character sheet by Drazili made for \"Legends: The Superhero Roleplaying Game\" by Jack and Chad Matchette.",
   "version": "1.4.1",
@@ -24,7 +24,7 @@
       "label": "Super powers",
       "path": ".packs/powers",
       "type": "Item",
-      "system": "legendsSuperheroRPG",
+      "system": "legends",
       "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER",
