@@ -13,7 +13,7 @@ Hooks.once("init", function(){
     console.log("Legends | Initializing legends");
 
     CONFIG.Combat.initiative = {
-        formula: "1d20 + @attributes.initiative.max"
+        formula: "1d20 + @attributes.initiative.max + (@attributes.initiative.max / 100)"
     };    
 
     CONFIG.Item.documentClass = LegendsItem;
