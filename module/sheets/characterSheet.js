@@ -65,8 +65,8 @@ export default class characterSheet extends ActorSheet{
     let newInitiative = mainInitiative - 10;
     let newCombatant = null;
 
-    // Create new combatants as long as their new initiative would be greater than 0.
-    while (newInitiative > 0) {
+    // Create new combatants as long as their new initiative would be equal or greater than 1, to account for the decimal.
+    while (newInitiative >= 1) {
       newCombatant = await combat.createEmbeddedDocuments("Combatant", [mainCombatant]);
       combat.setInitiative(newCombatant[0].id, newInitiative);
       newInitiative = newInitiative - 10;
