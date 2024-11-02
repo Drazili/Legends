@@ -25,6 +25,18 @@
                 },
                 "pronouns": "",
                 "level": 0,
+                "levelAdvances": [
+                    {
+                        "health": 0,
+                        "stamina": 0
+                    }
+                ],
+                "activeLevelAdvances": [
+                    {
+                        "health": 0,
+                        "stamina": 0
+                    }
+                ],
                 "xpValue": 0,
                 "trainingPoints": 0,
                 "heroPoints": 0,
@@ -38,19 +50,19 @@
                     "value": 10,
                     "max": 10,
                     "mod": 0,
-                    "description": "Campaign Power Setting + Stamina and Strength HP Bonuses"
+                    "description": "Campaign Power Setting + Stamina and Strength HP Bonuses."
                 },
                 "staminaPoints": {
                     "value": 10,
                     "max": 10,
                     "mod": 0,
-                    "description": "Campaign Power Setting + Full Stamina Skill Score and highest Skill Score from either Agility, Intelligence, Speed, or Strength"
+                    "description": "Campaign Power Setting + Full Stamina Skill Score and highest Skill Score from either Agility, Intelligence, Speed, or Strength."
                 },
                 "armorPoints": {
                     "value": 0,
                     "max": 10,
                     "mod": 0,
-                    "description": "Comes from any Powers/Abilities that grant Armour Points"
+                    "description": "Comes from any Powers/Abilities that grant Armour Points."
                 }
             },
             "settings": {
@@ -59,7 +71,8 @@
                 "empowered": true,
                 "npc": false,
                 "addMods": true,
-                "autoInsp": true
+                "autoInsp": true,
+                "unofficialStats": true
             }
         },
         "character": {
@@ -124,37 +137,37 @@
                     "value": 0,
                     "Max": 0,
                     "mod": 0,
-                    "description": "Starts at 10 + Initiative Bonus from Agility OR Speed"
+                    "description": "Starts at 10 + Initiative Bonus from Agility OR Speed."
                 },
                 "accuracy": {
                     "value": 0,
                     "Max": 0,
                     "mod": 0,
-                    "description": "Comes from Intelligence OR Senses"
+                    "description": "Comes from Intelligence OR Senses."
                 },
                 "inspiration": {
                     "value": 0,
                     "Max": 0,
                     "mod": 0,
-                    "description": "Comes from Charisma, gives a bonus to allies’ Accuracy and Skill Contest Rolls"
+                    "description": "Comes from Charisma, gives a bonus to allies’ Accuracy and Skill Contest Rolls."
                 },
                 "recoveries": {
                     "value": 0,
                     "Max": 0,
                     "mod": 0,
-                    "description": "How many times you can heal 1d10 + your level per day"
+                    "description": "How many times you can heal 1d10 + your level per day."
                 },
                 "defense": {
                     "value": 0,
                     "Max": 0,
                     "mod": 0,
-                    "description": "Starts at 10 + Defense Bonus from Agility OR Senses"
+                    "description": "Starts at 10 + Defense Bonus from Agility OR Senses."
                 },
                 "movement": {
                     "value": 0,
                     "Max": 0,
                     "mod": 0,
-                    "description": "Comes from Speed and is how fast you can sprint - use the same number for how many metres you can move in one turn"
+                    "description": "Comes from Speed and is how fast you can sprint - use the same number for how many metres you can move in one turn."
                 },
                 "handToHand": {
                     "value": "",
@@ -166,7 +179,8 @@
                     "value": 0,
                     "Max": 0,
                     "mod": 0,
-                    "description": "Comes from Strength, the max amount in KG your character can comfortably lift"
+                    "unit": "",
+                    "description": "Comes from Strength, the maximum your character can comfortably lift. - t = 1000 kg. - kt = 1000 t."
                 }
             },
             "durability": {
@@ -277,7 +291,11 @@
         }
       },
       "Item": {
-        "types": ["power", "weapon", "teammate"],
+        "types": [
+            "power",
+            "weapon",
+            "teammate"
+        ],
         "power": {
           "rating": "A",
           "description": "",

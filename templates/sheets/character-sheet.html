@@ -1,52 +1,14 @@
 <form class="actor-sheet {{cssClass}}" autocomplete="off">
     {{#if actor.system.showSettings}}
     <header class="sheet-header">
-        <section class="border">
-            <h3 class="sectionHeader">Section 0: Settings</h3>
-            <div class="flexrow">
-                <div class="flexrow">
-                    <div class="info fullgrey">
-                        <label class="info">Powered:</label>
-                    </div>
-                    <input class="info" type="checkbox" name="system.empowered" {{checked actor.system.empowered}} data-dtype="Boolean">   
-                </div>
-
-                <div class="flexrow">
-                    <div class="info fullgrey">
-                        <label class="info">NPC:</label>
-                    </div>
-                    <input class="info" type="checkbox" name="system.npc" {{checked actor.system.npc}} data-dtype="Boolean">
-                </div>
-
-                <div class="flexrow">
-                    <div class="info fullgrey">
-                        <label class="info">Auto calc:</label>
-                    </div>
-                    <input class="info" type="checkbox" name="system.autoCalc" {{checked actor.system.autoCalc}} data-dtype="Boolean">
-                </div>
-
-                <div class="flexrow">
-                    <div class="info fullgrey">
-                        <label class="info">Modifiers:</label>
-                    </div>
-                    <input class="info" type="checkbox" name="system.addMods" {{checked actor.system.addMods}} data-dtype="Boolean">
-                </div>
-
-                <div class="flexrow">
-                    <div class="info fullgrey">
-                        <label class="info">Auto Insp:</label>
-                    </div>
-                    <input class="info" type="checkbox" name="system.autoInsp" {{checked actor.system.autoInsp}} data-dtype="Boolean">
-                </div>
-            </div>
-        </section>
-
+        
     </header>
     {{/if}}
     <ul class="tabs">
         <li class="tab-link current" data-tab="tab-1">General Information</li>
         <li class="tab-link" data-tab="tab-2">Details</li>
         <li class="tab-link" data-tab="tab-3">Notes</li>
+        <li class="tab-link" data-tab="tab-4">Settings</li>
       </ul>
       
     <div id="tab-1" class="tab-content current">
@@ -112,12 +74,6 @@
             <div class="flexcol">
                 <div class="flexrow">
                     <div class="info fullgrey">
-                        <label class="info">Show settings:</label>
-                    </div>
-                    <input class="info" type="checkbox" name="system.showSettings" {{checked actor.system.showSettings}} data-dtype="Boolean">   
-                </div>
-                <div class="flexrow">
-                    <div class="info fullgrey">
                         <label class="info">Age:</label>
                     </div>
                     <input class="info" type="text" name="system.age" value="{{actor.system.age}}" data-dtype="String">
@@ -134,6 +90,7 @@
                     </div>
                     <input class="info" type="text" name="system.weight" value="{{actor.system.weight}}" data-dtype="String">
                 </div>
+                <div></div>
             </div>
         </div>
     </section>
@@ -237,7 +194,7 @@
                         {{#each actor.system.skills as |skill key|}}
                         <div class="flexrow list">
                             <div class="info fullgrey">
-                                <a class="info rollable" data-roll="1d20[Test]+@skills.{{key}}.powered + {{../actor.system.totalInsp}}[Inspiration] +@skills.{{key}}.modifer[modifer]" data-label="{{skill.name}}">{{skill.name}}</a>
+                                <a class="info rollable" data-roll="1d20+@skills.{{key}}.powered + {{../actor.system.totalInsp}}[Inspiration] +@skills.{{key}}.modifer[modifer]" data-label="{{skill.name}}">{{skill.name}}</a>
                             </div>
                             <input class="info" type="number" name="system.skills.{{key}}.unpowered" value="{{skill.unpowered}}" data-dtype="Number">
                             <input class="info" type="number" name="system.skills.{{key}}.powered" value="{{skill.powered}}" data-dtype="Number">
@@ -466,6 +423,7 @@
                             </div>
                             <div class="flexrow">
                                 <input class="info" readonly="{{actor.system.autoCalc}}" type="number" name="system.attributes.maxLift.max" value="{{actor.system.attributes.maxLift.max}}" data-dtype="Number">
+                                <input class="info" readonly="{{actor.system.autoCalc}}" type="text" name="system.attributes.maxLift.unit" value="{{actor.system.attributes.maxLift.unit}}" data-dtype="String">
                                 {{#if actor.system.addMods}}
                                 <input class="info" type="number" name="system.attributes.maxLift.mod" value="{{actor.system.attributes.maxLift.mod}}" data-dtype="Number">
                                 {{/if}}
@@ -624,7 +582,7 @@
                 <a class="item-control" title="CreateTeammate" data-action="create-teammate"><i class="fas fa-plus"></i> Create teammate</a>
             </section>
             <section class="border">
-                <h3 class="sectionHeader">Section M: Goals & Ambitions</h3>
+                <h3 class="sectionHeader">Section M: Projects & Ambitions</h3>
                 <div style="height: 200px;">   
                     {{editor actor.system.goals.description target="system.goals.description" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}    
                 </div>
@@ -637,4 +595,114 @@
             </div>
         </section>
     </div>
+
+    <div id="tab-4" class="tab-content">
+        <div class="flexrow">
+            <div>
+                <section class="border">
+                    <h3 class="sectionHeader">Section 0: Automation</h3>
+                    <div class="flexcol">
+                        <div class="flexrow list">
+                            <div class="info fullgrey">
+                                <label class="info">Enable modifers:</label>
+                            </div>
+                            <input class="info" type="checkbox" name="system.addMods" {{checked actor.system.addMods}} data-dtype="Boolean">
+                        </div>
+
+                        <div class="flexrow list">
+                            <div class="info fullgrey">
+                                <label class="info">Calculate attributes:</label>
+                            </div>
+                            <input class="info" type="checkbox" name="system.autoCalc" {{checked actor.system.autoCalc}} data-dtype="Boolean">
+                        </div>
+    
+                        <div class="flexrow list">
+                            <div class="info fullgrey">
+                                <label class="info">Calculate team inspiration:</label>
+                            </div>
+                            <input class="info" type="checkbox" name="system.autoInsp" {{checked actor.system.autoInsp}} data-dtype="Boolean">
+                        </div>
+    
+                        <div class="flexrow list">
+                            <div class="info fullgrey">
+                                <label class="info">Powers enabled:</label>
+                            </div>
+                            <input class="info" type="checkbox" name="system.empowered" {{checked actor.system.empowered}} data-dtype="Boolean">   
+                        </div>
+    
+                        <div class="flexrow list">
+                            <div class="info fullgrey">
+                                <label class="info">NPC power settings:</label>
+                            </div>
+                            <input class="info" type="checkbox" name="system.npc" {{checked actor.system.npc}} data-dtype="Boolean">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="border">
+                    <h3 class="sectionHeader">Section 1: Homebrew</h3>
+                    <div class="flexcol">    
+                        <div class="flexrow">
+                            <div class="info fullgrey">
+                                <label class="info">Increase skill max to 50</label>
+                            </div>
+                            <input class="info" type="checkbox" name="system.unofficialStats" {{checked actor.system.unofficialStats}} data-dtype="Boolean">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div>
+                <section class="border">
+                    <h3 class="sectionHeader">Section 2: Advancements</h3>
+                    <div class="flexrow">
+                        <div class="flexcol">
+        
+                        </div>
+        
+                        <div class="flexcol">
+                            <div class="info fullgrey">
+                                <label class="info-right">Level increases:</label>
+                            </div>
+        
+                            <div class="flexrow">
+                                <div class="info fullgrey">
+                                    <label class="info">Level:</label>
+                                </div>
+        
+                                <div class="info fullgrey">
+                                    <label class="info">Health:</label>
+                                </div>
+        
+                                <div class="info fullgrey">
+                                    <label class="info">Stamina:</label>
+                                </div>
+                            </div>
+                            {{#each actor.system.activeLevelAdvances as |advance index|}}
+                            {{#with ../actor.system as |settings|}}
+                            {{#if @first}}
+                            <div class="flexrow list">
+                                <div class="info fullgrey">
+                                    <label class="info">Base:</label>
+                                </div>
+                                <input class="info" readonly="{{settings.autoCalc}}" type="number" name="system.activeLevelAdvances.{{index}}.health" value="{{advance.health}}" data-dtype="Number">
+                                <input class="info" readonly="{{settings.autoCalc}}" type="number" name="system.activeLevelAdvances.{{index}}.stamina" value="{{advance.stamina}}" data-dtype="Number">
+                            </div>
+                            {{else}}
+                            <div class="flexrow list">
+                                <div class="info fullgrey">
+                                    <label class="info">{{index}}</label>
+                                </div>
+                                <input class="info" type="number" name="system.activeLevelAdvances.{{index}}.health" value="{{advance.health}}" data-dtype="Number">
+                                <input class="info" type="number" name="system.activeLevelAdvances.{{index}}.stamina" value="{{advance.stamina}}" data-dtype="Number">
+                            </div>
+                            {{/if}}
+                            {{/with}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </section>     
+            </div>
+        </div>
+    </div>             
 </form>

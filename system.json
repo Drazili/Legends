@@ -1,8 +1,8 @@
 {
-  "id": "legends",
-  "title": "Legends",
-  "description": "The superhero role playing game.",
-  "version": "1.4.0",
+  "id": "legendsSuperheroRPG",
+  "title": "Legends: The Superhero roleplaying Game",
+  "description": "Unoffical character sheet by Drazili made for \"Legends: The Superhero Roleplaying Game\" by Jack and Chad Matchette.",
+  "version": "1.4.1",
   "authors": [
     {
       "name": "Drazili",
@@ -24,7 +24,7 @@
       "label": "Super powers",
       "path": ".packs/powers",
       "type": "Item",
-      "system": "legends",
+      "system": "legendsSuperheroRPG",
       "flags": {},
       "ownership": {
         "PLAYER": "OBSERVER",
@@ -39,7 +39,7 @@
   "primaryTokenAttribute": "hitPoints",
   "secondaryTokenAttribute": "staminaPoints",
   "manifest": "https://raw.githubusercontent.com/Drazili/Legends/master/system.json",
-  "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.4.0.zip",
+  "download": "https://github.com/Drazili/Legends/archive/refs/tags/v1.4.1.zip",
   "url": "https://github.com/Drazili/Legends",
   "compatibility": {
     "minimum": "12",
