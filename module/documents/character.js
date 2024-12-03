@@ -22,7 +22,7 @@ export default class LegendsCharacter extends Actor{
         if (this.system.autoInsp) {
             this._calcInspoBonus();
         }
-        console.log(this.system);
+        // console.log(this.system);
     }
 
     _setPowerSettingOptions(){
@@ -49,26 +49,21 @@ export default class LegendsCharacter extends Actor{
         const level = this.system.level;
         const advances = this.system.levelAdvances;
         const active = this.system.activeLevelAdvances;
+        const length = Object.keys(active).length;
 
         var i = 0;
         while (i <= level) {
-            if (advances[i] == undefined) {
-                advances[i] = {
+            if (active[i] == undefined) {
+                active[i] = {
                     "health": 0,
                     "stamina": 0
-                };
-            } else {
-                advances[i] = active[i];
+                } 
             }
             i++;
         }
 
-        i = 0;
-        while (i < Object.keys(advances).length) {
+        while (i < length) {
             delete active[i];
-            if (i <= level) {
-                active[i] = advances[i];
-            }
             i++;
         }
     }
